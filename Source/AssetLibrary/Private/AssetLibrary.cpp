@@ -10,7 +10,7 @@
 
 void FAssetLibraryModule::StartupModule()
 {
-	FString ShadersDirectory = FPaths::Combine(IPluginManager::Get().FindPlugin(TEXT("AssetLibrary"))->GetBaseDir(), TEXT("Shaders"));
+	FString ShadersDirectory = FPaths::Combine(IPluginManager::Get().FindPlugin(TEXT("AssetLibrary"))->GetBaseDir(), TEXT("Shaders\\ush"));
 	AddShaderSourceDirectoryMapping("/AssetLibrary", ShadersDirectory);
 	UE_LOG(LogTemp, Warning, TEXT("[AssetLibrary][Info] Added Asset Library shaders path to active include directories."));
 }
