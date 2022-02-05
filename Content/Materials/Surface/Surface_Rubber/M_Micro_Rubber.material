@@ -1,0 +1,16 @@
+{
+    "metadata": {
+        "asset_guid": "6cc759c920d135b553b396acb96d3d2a",
+        "#export:relative_to": "x:\\assets",
+        "#export:textures_subdir": "textures",
+        "#export:output_dir": "Materials\\Surface\\Surface_Rubber",
+        "#export:textures_output_dir": "Materials\\Surface\\Surface_Rubber\\textures",
+        "base_name": "M_Micro_Rubber",
+        "revision_guid": "7774485eff646fa4fbdbc273fe1b1623"
+    },
+    "textures": {
+        "S": "materials\\surface\\surface_rubber\\textures\\t_micro_rubber_s.tga",
+        "DA": "materials\\surface\\surface_rubber\\textures\\t_micro_rubber_da.tga",
+        "N": "materials\\surface\\surface_rubber\\textures\\t_micro_rubber_n.tga"
+    }
+}

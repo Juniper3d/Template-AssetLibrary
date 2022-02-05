@@ -1,0 +1,16 @@
+{
+    "metadata": {
+        "asset_guid": "d4cabb020214178db9fe2457e644966d",
+        "#export:relative_to": "x:\\assets",
+        "#export:textures_subdir": "textures",
+        "#export:output_dir": "Materials\\Surface\\Surface_Rope",
+        "#export:textures_output_dir": "Materials\\Surface\\Surface_Rope\\textures",
+        "base_name": "M_Micro_Rope",
+        "revision_guid": "8048ab5a875c5765466a7ae57039e417"
+    },
+    "textures": {
+        "S": "materials\\surface\\surface_rope\\textures\\t_micro_rope_s.tga",
+        "DA": "materials\\surface\\surface_rope\\textures\\t_micro_rope_da.tga",
+        "N": "materials\\surface\\surface_rope\\textures\\t_micro_rope_n.tga"
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "metadata": {
+        "guid": "7c2ef546cff229a5daf15f6ec7c72dc4",
+        "instance": "",
+        "name": "Surface_Default",
+        "shader": "MT_Surface_Standard",
+        "variant": "",
+        "asset_guid": "863860b62bad5e95980fc591fe82ae72",
+        "#export:relative_to": "x:\\assets",
+        "#export:textures_subdir": "textures",
+        "#export:output_dir": "Materials\\Surface_Default",
+        "#export:textures_output_dir": "Materials\\Surface_Default\\textures",
+        "base_name": "M_Surface_Default",
+        "revision_guid": "d0d14d9bc11d398f3bcb8128a48e5b7f"
+    },
+    "parameters": {
+        "AlbedoMap": "t_surface_default_da.tga",
+        "NormalMap": "t_surface_default_n.tga",
+        "SurfaceMap": "t_surface_default_s.tga"
+    },
+    "textures": {
+        "DA": "materials\\surface_default\\textures\\t_surface_default_da.tga",
+        "N": "materials\\surface_default\\textures\\t_surface_default_n.tga",
+        "S": "materials\\surface_default\\textures\\t_surface_default_s.tga"
+    }
+}

@@ -1,0 +1,61 @@
+/**
+ *
+ */
+
+
+//
+inline float3 Tangent2World_Vec(
+    float3 tsNormal,    // Unpacked tangent space normal in [-1..1] range
+    float3x3 matrixTNB  // 3x3 Matrix [Tangent, Binormal, Normal] in world space
+    )
+{
+    return mul(tsNormal, matrixTNB)
+}
+
+
+//
+inline float4 Object2Screen_Pos(
+    float3 oPos,        // Object space position
+    float4x4 matrixWVP  // 4x4 Matrix [World, View, Projection]
+    )
+{
+    return mul(float4(oPos, 1), matrixWVP);
+}
+
+
+//
+inline float4 Object2World_Pos(
+    float3 oPos,        // Object space position
+    float4x4 matrixW    // 4x4 Matrix [World]
+    )
+{
+    return mul(float4(oPos, 1), matrixW);
+}
+
+
+//
+inline float3 Object2WorldVec(
+    float3 oNml,        // Object space normal
+    float4x4 matrixWIT  // 4x4 Matrix [World Inverse Transpose]
+    )
+{
+    return normalize( mul(float4(oNml, 0), matrixWIT).xyz );
+}
+
+
+// Returns the objects position in world space
+inline float3 ObjectPosition(
+    float4x4 matrixW    // World Matrix
+    )
+{
+    return Object2WorldPos(float3(0,0,0), matrixW).xyz;
+}
+
+
+// Returns the objects up vector in world space
+inline float3 ObjectN0rmal(
+    float4x4 matrixWIT  // World inverse transpose matrix
+    )
+{
+    return Object2WorldVec(float3(0,1,0), matrixWIT);
+}

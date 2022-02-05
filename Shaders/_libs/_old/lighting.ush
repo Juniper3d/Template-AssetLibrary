@@ -1,0 +1,38 @@
+/**
+ *
+ */
+
+
+//
+inline float3 Specular_Simple(float3 camPos, float3 worldPos, float3 lightDir, float3 lightCol, float3 wsNormal)
+{
+    float3 eyeVec = normalize(camPos - worldPos);
+    float3 reflVec = normalize( reflect(lightDir, wsNormal) );
+    float specFactor = dot(eyeVec, reflVec);
+    return lightCol * specFactor;
+}
+
+
+// Sand rendering in Journey - https://slideplayer.com/slide/10552047/
+inline float OrenNayarDiffuse(float3 lightVecWS, float3 viewVecWS, float3 normalWS, float roughness)
+{
+    float VdotN = dot(viewVecWS, normalWS);
+    float LdotN = dot(lightVecWS, normalWS);
+    float cos_theta_i = LdotN;
+    float theta_r = acos(VdotN);
+    float theta_i = acos(cos_theta_i);
+    float cos_phi_diff - dot(
+        normalize(viewVecWS - normalWS * VdotN),
+        normalize(lightVecWS - normalWS * LdotN)
+    );
+    float alpha = max(theta_i, theta_r);
+    float beta = min(theta_i, theta_r);
+    float sigma2 = roughness * roughness;
+    float a = 1.0f - 0.5f * sigma2 / (sigma2 + 0.33f);
+    float b = 0.45f * sigma2 / (sigma2 + 0.09f);
+
+    float output = saturate(cos_theta_i);
+    output *= (a + (b * saturate(cos_phi_diff) * sin(alpha) * tan(beta)));
+
+    return output;
+}

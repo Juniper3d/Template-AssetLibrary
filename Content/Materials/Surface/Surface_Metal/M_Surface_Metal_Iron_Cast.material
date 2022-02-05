@@ -1,0 +1,16 @@
+{
+    "metadata": {
+        "asset_guid": "1f721337871eedfdddc27982b4794603",
+        "#export:relative_to": "x:\\assets",
+        "#export:textures_subdir": "textures",
+        "#export:output_dir": "Materials\\Surface\\Surface_Metal",
+        "#export:textures_output_dir": "Materials\\Surface\\Surface_Metal\\textures",
+        "base_name": "M_Surface_Metal",
+        "revision_guid": "b9a895a61cfc6af30b43ffb1af93ef42"
+    },
+    "textures": {
+        "S": "materials\\surface\\surface_metal\\textures\\t_surface_metal_iron_cast_s.tga",
+        "DA": "materials\\surface\\surface_metal\\textures\\t_surface_metal_iron_cast_da.tga",
+        "N": "materials\\surface\\surface_metal\\textures\\t_surface_metal_iron_cast_n.tga"
+    }
+}

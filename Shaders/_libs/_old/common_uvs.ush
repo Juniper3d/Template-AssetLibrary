@@ -1,0 +1,81 @@
+/**
+ *
+ */
+
+
+// Rotate UVs
+inline float2 RotateUVs(float2 uvs, float angle)
+{
+    angle = radians(angle) * 360;
+    uvs = ( -0.5 + uvs );
+    float2 csn = float2(cos(angle), sin(angle) * -1  );
+    float2 sn = float2( sin(angle), cos(angle) );
+    return float2( dot(uv, csn), dot(uv, sn) ) + 0.5;
+}
+
+
+// Triplanar UVs (hard edges)
+inline float2 GetWorldUVs(
+    float scale,    // Scale in meters
+    float3 wPos,    // Position in world space
+    float3 vNml,    // World space vertex normals
+    float angle     // Rotation of the UVs
+    )    
+{
+    float2 rg = lerp( wPos.xy, wPos.yz, round( abs( vNml.x ) ) );
+    float2 gb = lerp( rg, wPos.xz, round( abs( vNml.y ) ) );
+    float2 output = ( 1 + float2( gb.x, gb.y ) ) / scale;
+
+    [branch]
+    if(angle != 0.0)
+    {
+        output = RotateUVs( output, angle );
+    }
+    
+    return output;
+}
+
+
+// Get flipbook uv coordinates from input cell id
+inline float2 GetFlipbookUVs(float2 inputUVs, int2 cellsCount, float fraction)
+{
+    float2 output = float2(0.0, 0.0);
+
+    float numCells = cellsCount.x * cellsCount.y;
+
+    output = frac(1.0 - fraction);
+    output *= float2(1.0 - numCells, cellsCount.y);
+    output /= cellsCount;
+    output += (inputUVs / cellsCount);
+
+    return output;
+}
+
+
+// 
+inline float2 GetParallaxUVs(float2 UVs, float3 viewDir, float height, float ratio)
+{
+    viewDir = viewDir * float3(1,-1,1);
+    float h = ratio * height * 0.01;
+    return UVs + viewDir.xy * h;
+}
+
+
+//
+inline float2 pixellate_UVs(float2 UVs, float strength)    
+{
+	return (floor((_ScreenParams*strength)*UVs))/(_ScreenParams*strength);
+}
+
+
+// https://medium.com/@bgolus/normal-mapping-for-a-triplanar-shader-10bf39dca05a
+inline float2 ASymTriplanarUVs(float3 normal)
+{
+    float3 blend = 0.0f;
+
+    float2 xzBlend = abs(normalize(normal.xz));
+    blend.xz = max(0.0f, xzBlend - 0.67f);
+    blend.xz *= (1.0f - blend.y);
+
+    return xzBlend;
+}

@@ -1,0 +1,16 @@
+{
+    "metadata": {
+        "asset_guid": "01cad0433dcd99b91a4688006299fa1f",
+        "#export:relative_to": "x:\\assets",
+        "#export:textures_subdir": "textures",
+        "#export:output_dir": "Materials\\Surface\\Surface_Moss",
+        "#export:textures_output_dir": "Materials\\Surface\\Surface_Moss\\textures",
+        "base_name": "M_Micro_Moss",
+        "revision_guid": "7944cb081262310e06cb020721fd9afb"
+    },
+    "textures": {
+        "S": "materials\\surface\\surface_moss\\textures\\t_micro_moss_03_s.tga",
+        "DA": "materials\\surface\\surface_moss\\textures\\t_micro_moss_03_da.tga",
+        "N": "materials\\surface\\surface_moss\\textures\\t_micro_moss_03_n.tga"
+    }
+}

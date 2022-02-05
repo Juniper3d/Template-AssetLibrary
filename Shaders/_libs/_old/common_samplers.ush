@@ -1,0 +1,40 @@
+/**
+ *
+ */
+
+
+// Sample a volume flipbook texture
+inline float4 Texture2DVolumeFlipbookSample(float3 uvw, Texture2D tex, float2 subImages)
+{
+    float2 fsi = {(SubImages.x * SubImages.y), SubImages.y};
+    float2 layer00 = (floor((fsi)*(frac(UVW).z + ((1/(SubImages.x * SubImages.y))*0)).xx)/SubImages)+(frac(UVW.xy)/SubImages);
+    float2 layer01 = (floor((fsi)*(frac(UVW).z + ((1/(SubImages.x * SubImages.y))*1)).xx)/SubImages)+(frac(UVW.xy)/SubImages);
+    
+    return lerp(
+        Texture2DSample(Tex, View.MaterialTextureBilinearWrapedSampler, layer00),
+        Texture2DSample(Tex, View.MaterialTextureBilinearWrapedSampler, layer01),
+        frac(frac(UVW.z)*(SubImages.x * SubImages.y))
+        );
+}
+
+
+//
+inline float4 VolumeFlipbook3D(int steps, float stepsMultiplier, float3 windVec, float time, float3 uvw, float uvwScale, float3 camPos, float3 worldPos )
+{
+    const float steps_distance = stepsMultiplier / steps;
+    const float3 windOffset = (windVec * time);
+    uvw = (-uvw / uvwScale) + windOffset;
+    camPos = (camPos / uvwScale) + windOffset;
+    const float3 camDir = normalize(camPos - worldPos);
+
+    float4 currentDensity = 0;
+    float3 currentPosition = uvw;
+
+    for(int i = 0; i < steps; i++)
+    {
+        currentDensity += Texture2DVolumeFlipbookSample(currentPosition, tex, subImages);
+        currentPosition += -camDir * steps_distance;
+    }
+
+    return 1 - (saturate( currentDensity / steps ));
+}

@@ -1,0 +1,16 @@
+{
+    "metadata": {
+        "asset_guid": "0bad1346ce20a2ef44387ff6090fbe70",
+        "#export:relative_to": "x:\\project\\plugins\\assetlibrary\\content",
+        "#export:textures_subdir": "textures",
+        "#export:output_dir": "X:\\Project\\Plugins\\AssetLibrary\\Content\\Materials\\Surface\\Surface_Metal_Flooring",
+        "#export:textures_output_dir": "X:\\Project\\Plugins\\AssetLibrary\\Content\\Materials\\Surface\\Surface_Metal_Flooring\\textures",
+        "base_name": "M_Micro_Metal_Flooring",
+        "revision_guid": "4df235e8f804650026ea39f39e03de15"
+    },
+    "textures": {
+        "S": "materials\\surface\\surface_metal_flooring\\textures\\t_micro_metal_flooring_03_s.tga",
+        "D": "materials\\surface\\surface_metal_flooring\\textures\\t_micro_metal_flooring_03_d.tga",
+        "N": "materials\\surface\\surface_metal_flooring\\textures\\t_micro_metal_flooring_03_n.tga"
+    }
+}

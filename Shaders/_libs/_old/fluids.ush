@@ -1,0 +1,26 @@
+/**
+ *
+ */
+
+
+// Single gerstner wave function
+// return.xyz = Gertner Vector
+// returl.w = Amplitude Mask
+inline float4 GerstnerWave(float3 wPos, float3 windVec, float time, float waveLength, float phase, float steepness, float amplitude)
+//return.xyz : Gerstner vector
+//return.w : Amplitude mask
+{
+        float4 vec = float4(0,0,0,0);
+
+        float pW = 2 / waveLength;
+        float wSpd = (time * phase * pW);
+        float wDot = (dot(wPos.xy, normalize(windVec).xy) * pW) + wSpd;
+        float calcSteepness = amplitude * (steepness / (amplitude * pW * pow(6.283, 2)));
+
+        vec.x = cos(wDot) * windVec.x * calcSteepness;  //X
+        vec.y = cos(wDot) * windVec.y * calcSteepness;  //Y
+        vec.z = sin(wDot) * amplitude;                  //Z
+        vec.w = amplitude * pW * pW * phase;            //W
+
+        return vec;
+}

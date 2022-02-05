@@ -1,0 +1,27 @@
+#pragma once
+#include "_libs/defines.ush"
+
+#include "_libs/maths.ush"
+#include "_libs/fluids/water.ush"
+#include "_libs/noise/hash.ush"
+#include "_libs/lighting/lighting.ush"
+#include "_libs/texturing/samplers.ush"
+#include "_libs/texturing/uvs.ush"
+
+#include "_libs/programs/unreal.ush"
+
+container(ShaderLibrary,
+
+    float CheckerPattern(float2 uvs)
+    {
+        uvs = floor(uvs) / 2;
+        float output = 2 * frac(uvs.x + uvs.y);
+        return output;
+    }
+
+    float RemappedSin(float value)
+    {
+        return float((1.0 + sin(value)) / 2.0);
+    }
+
+)

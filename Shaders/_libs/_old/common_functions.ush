@@ -1,0 +1,32 @@
+/**
+ *
+ */
+
+
+// 
+inline float CheckerPattern(float2 UVs)
+{
+    UVs = floor(UVs) / 2;
+    return 2 * frac(UVs.x + UVs.y);
+}
+
+
+// Sine remapped [0..1]
+inline float remappedSin(float value) 
+{
+	return ((1+sin(value))/2); 
+}
+
+
+// Pseudo-random value from input seed
+inline float random(float seed)
+{
+	return(frac(sin(seed)*314159.0));
+}
+
+
+// Pseudo-random 2d value
+inline float2 random(float2 pos)
+{
+	return frac(sin(dot(pos.xy, float2(12.9898, 78.233))) * 43758.5453123);
+}

@@ -1,0 +1,16 @@
+{
+    "metadata": {
+        "asset_guid": "48da06bf62c612c9012fa687d258a59c",
+        "#export:relative_to": "x:\\assets",
+        "#export:textures_subdir": "textures",
+        "#export:output_dir": "Materials\\Surface\\Surface_Paint",
+        "#export:textures_output_dir": "Materials\\Surface\\Surface_Paint\\textures",
+        "base_name": "M_Surface_Paint",
+        "revision_guid": "7e10465af5b0e1251858465acd8e8ba5"
+    },
+    "textures": {
+        "S": "materials\\surface\\surface_paint\\textures\\t_surface_paint_s.tga",
+        "DA": "materials\\surface\\surface_paint\\textures\\t_surface_paint_da.tga",
+        "N": "materials\\surface\\surface_paint\\textures\\t_surface_paint_n.tga"
+    }
+}
