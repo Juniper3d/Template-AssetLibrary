@@ -17,8 +17,11 @@
 	"Modules": [
 		{
 			"Name": "AssetLibrary",
-			"Type": "Developer",
-			"LoadingPhase": "PostConfigInit"
+			"Type": "Editor",
+			"LoadingPhase": "PostConfigInit",
+			"AdditionalDependencies":[
+				"ProceduralMeshComponent"
+			]
 		}
 	]
 }
